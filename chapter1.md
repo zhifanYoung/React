@@ -103,6 +103,8 @@
         * ```.item {
           align-self: auto | flex-start | flex-end | center | baseline | stretch;
         }```
+        
+  4.生命周期函数:componentWillMount。这个函数只有在组件首次渲染时才会触发
 
       
 
