@@ -103,6 +103,8 @@
         * ```.item {
           align-self: auto | flex-start | flex-end | center | baseline | stretch;
         }```
+    3. 通过设置flex为1来让宽度高度填充100%,通过height，width为null，来让Image填充屏幕 通过设置父视图的alignItems:'center' flexDirection:'column'来设置水平居,alignItems:'center' flexDirection:'row'来设置垂直居中
+
         
   4.生命周期函数:
     * componentWillMount。这个函数只有在组件首次渲染时才会触发，在React中，设置this.state会导致重新渲染，但是componentWillMount设置this.state并不会对导致render调用多次
