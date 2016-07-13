@@ -9,7 +9,7 @@
 
 2.组件
     * 组件，即被独立封装的可复用 UI 部件。组件也是 React 的核心思想之一
-    * React 为每个组件都提供一个 render 方法，这个方法返回组件的实例
+    * React 为每个组件都提供一个 render 方法，这个方法返回组件的实例，用来渲染实际component可视部分
     * 组件有两个重要的概念： props 和 state ，他们的作用都是用于描述组件的状态
       * props 是组件对外交互的接口，是一种父级向子级传递数据的方式
       * state 用于记录组件的不同状态， React 把组件看成是一个状态机，通过与用户的交互，实现不同状态，然后重新渲染组件，让UI界面及时有效地随数据变化而变化
@@ -104,11 +104,21 @@
           align-self: auto | flex-start | flex-end | center | baseline | stretch;
         }```
         
-  4.生命周期函数:componentWillMount。这个函数只有在组件首次渲染时才会触发
+  4.生命周期函数:
+    * componentWillMount。这个函数只有在组件首次渲染时才会触发，在React中，设置this.state会导致重新渲染，但是componentWillMount设置this.state并不会对导致render调用多次
+    * componentDidMount。在渲染结束后，调用一次。
+    * componentWillReceiveProps。在component接收到新的参数前调用，在这个方法中调用this.setState不会触发二次渲染，第一次渲染的时候不会调用这个方法
+    * shouldComponentUpdate。在每次重新触发渲染之前调用，其中nextProps和nextState分别对应下一个状态的参数和状态对象。可以在这个方法中返回false来取消本次渲染。 
+    * componentWillUpdate。在重新渲染之前调用 Warning：这个方法里不能调用this.setState()否则会陷入死循环
+    * componentDidUpdate。在渲染之后调用
+    * componentWillUnmount。在被删除之前调用
+
   
   5.扩展运算符用三个点号表示，功能是把数组或类数组对象展开成一系列用逗号隔开的值 传统写法：foo(arr[0], arr[1], arr[2]); ----> foo(...arr);
 
   6.箭头函数 ```var a3 = a.map( (s) => s.length );```  (s)用来描述参数，=>后的表示方法的执行体。学过Swift的童鞋，会发现和Swift的必包很像
+
+  7.JS中的对象的属性可以不先声明，而在运行时候动态添加；所以，在React Native中，写代码的时候，存储数据直接this.propertyName ＝即可
 
       
 
